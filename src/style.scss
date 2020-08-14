@@ -1,0 +1,173 @@
+@import "./variables.scss";
+
+body {
+	background-color: $background-color;
+	color: white;
+	font: {
+		family: Jost, times, arial;
+		size: 1rem;
+	}
+	margin: 0;
+	z-index: -1000;
+}
+
+header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	position: fixed;
+	width: 100%;
+	min-width: 200px;
+	background-color: $background-color;
+	top: 0;
+
+	.header-logo {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		box-sizing: border-box;
+		width: 50%;
+		padding: 1% 2%;
+
+		img {
+			max-width: 100px;
+		}
+
+		.platform-title {
+			padding: 2%;
+			font-size: 1.1rem;
+		}
+	}
+	.header-buttons {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		width: 50%;
+
+		div {
+			width: 80px;
+			text-align: center;
+			margin-right: 3%;
+			cursor: pointer;
+
+			&:hover {
+				color: black;
+				background-color: white;
+				border-radius: 3px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1280px) {
+		.header-logo > .platform-title {
+			display: none;
+		}
+	}
+}
+
+main {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+	padding: 2%;
+	z-index: -1;
+	margin-top: 100px;
+	& > * {
+		display: flex;
+		flex-flow: row nowrap;
+		box-sizing: border-box;
+	}
+	& > div {
+		margin: 2% 0 1%;
+		font-size: 1.1rem;
+		@media screen and (max-width: 375px) {
+			font-size: 1.5rem;
+		}
+	}
+	.section-title > #top-text {
+		padding: 0 0.6%;
+
+		&::after {
+			content: "5";
+			font-weight: bold;
+
+			@media screen and (max-width: 1280px) {
+				content: "3";
+			}
+		}
+		@media screen and (max-width: 375px) {
+			padding: 0 1.5%;
+		}
+	}
+
+	.top {
+		flex-flow: row-reverse;
+
+		.top-item {
+			display: flex;
+			flex-flow: row wrap;
+			flex: 1 0 20%;
+			border: 2px solid $background-color;
+			box-sizing: border-box;
+			img {
+				width: 100%;
+			}
+		}
+		@media screen and (max-width: 1280px) {
+			flex-wrap: wrap-reverse;
+
+			.top-item {
+				flex: 1 0 33.33%;
+
+				img {
+					min-width: 225px;
+				}
+
+				&:nth-child(-n + 2) {
+					display: none;
+				}
+			}
+		}
+	}
+	.first,
+	.second {
+		display: flex;
+		flex-flow: row wrap;
+
+		.item {
+			flex: 1 0 16.666%;
+			cursor: pointer;
+			border: 2px solid $background-color;
+			box-sizing: border-box;
+
+			img {
+				width: 100%;
+
+				&:hover {
+					transform: scale(1.1);
+					-webkit-transform: scale(1.1);
+					overflow: visible;
+				}
+			}
+		}
+		@media screen and (max-width: 1280px) {
+			&:nth-last-child(-n + 2) {
+				flex: 1 0 50%;
+			}
+
+			img {
+				min-width: 250px;
+			}
+		}
+	}
+
+	@media screen and (min-width: 1280px) {
+		max-width: 1280px;
+		margin: 100px auto;
+	}
+}
+footer {
+	font-size: 0.7rem;
+	text-align: right;
+	padding: 3%;
+}
